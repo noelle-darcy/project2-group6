@@ -1,8 +1,6 @@
 const User = require('./user');
 const Dog = require('./dog');
 const Reviews = require('./reviews');
-const Reservations = require('./reservations');
-const Scheduling = require('./scheduling');
 
 User.hasMany(Dog, {
     foreignKey: 'user_id',
@@ -25,4 +23,4 @@ Reservations.belongsTo(Dog, {
 
 // Can add more connections if we need right here.
 
-module.exports = {User, Dog, Reservations};
+module.exports = { User, Dog, Reservations };
