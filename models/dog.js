@@ -1,5 +1,5 @@
 const { Model, Datatypes} = require('sequelize');
-const sequelize = require('../config/connection')
+const sequelize = require('../config/connection');
 
 // create our dog model
 class Dog extends Model {}
