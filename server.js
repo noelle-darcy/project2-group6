@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
-
+const sequelize = require('./config/connection');
 
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 
@@ -14,8 +15,12 @@ app.get('/', (req, res) => {
     res.send('<h1>Hello!  Welcome to the Muttel</h1>');
 });
 
-
-app.listen(PORT, () => {
-    console.log(`Listening on Port ${PORT}`);
-    // sequelize.sync({ force: false });
+sequelize.sync().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Listening on Port ${PORT}`);
+    });
 });
+
+sequelize.sync().then(() => {
+    
+})
