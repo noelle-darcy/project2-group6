@@ -3,16 +3,23 @@ const sequelize = require('../config/connection');
 
 class Reviews extends Model {}
 
-Reviews.init({
-	reviewerName: {
-		type: Datatypes.STRING,
-		allowNull: false,
+Reviews.init(
+	{
+		reviewerName: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		review: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			len: [4]
+		},
+		sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'Reviews',
 	},
-	review: {
-		type: Datatypes.STRING,
-		allowNull: false,
-		len: [4]
-	}
-})
+);
 
 module.exports = Reviews;
