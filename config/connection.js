@@ -12,3 +12,4 @@ const sequelize = process.env.MUTTELDB_URL
     });
 
 module.exports = sequelize;
+
