@@ -7,7 +7,6 @@ User.hasMany(Dog, {
     onDelete: 'CASCADE', // delete user's dogs if user deleted.
 });
 
-
 Dog.belongsTo(User, {
     foreignKey: 'user_id',
 });

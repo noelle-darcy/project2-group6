@@ -40,10 +40,10 @@ Dog.init(
 		type: Datatypes.STRING,
 		allowNull: false,
 	  }, 
-	  dog_id: {
+	  user_id: {
 		type: DataTypes.INTEGER,
 		references: {
-			model: 'dog',
+			model: 'user',
 			key: 'id',
 		},
 	  },
