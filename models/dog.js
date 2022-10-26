@@ -4,35 +4,57 @@ const sequelize = require('../config/connection');
 // create our dog model
 class Dog extends Model {}
 
-Dog.init({
-	dogName: {
+Dog.init(
+	{
+	  id: {
+		type: Datatypes.INTEGER,
+		allowNull: false,
+		primaryKey: true,
+		autoIncrement: true,
+	  },
+	  dogName: {
+	    type: Datatypes.STRING,
+    	allowNull: false,
+	  },
+	  dogBreed: {
 		type: Datatypes.STRING,
 		allowNull: false,
-	},
-	dogBreed: {
-		type: Datatypes.STRING,
-		allowNull: false,
-	},
-	dogSex: {
+	  },
+	  dogSex: {
 		type: Datatypes.ENUM('male', 'female'),
 		allowNull: false,
-	},
-	dogAge: {
+	  },
+	  dogAge: {
 		type: Datatypes.INTEGER,
 		allowNull: false,
-	},
-	dogWeight: {
+	  },
+	  dogWeight: {
 		type: Datatypes.INTEGER,
 		allowNull: false,
-	},
-	dogVet: {
+	  },
+	  dogVet: {
 		type: Datatypes.STRING,
 		allowNull: false,
-	},
-	dogConditions: {
+	  },
+	  dogConditions: {
 		type: Datatypes.STRING,
 		allowNull: false,
-	}
-})
+	  }, 
+	  dog_id: {
+		type: DataTypes.INTEGER,
+		references: {
+			model: 'dog',
+			key: 'id',
+		},
+	  },
+	},
+	{
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'Dog'
+    }  
+);
 
 module.exports = Dog;
