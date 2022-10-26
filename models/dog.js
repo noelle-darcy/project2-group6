@@ -1,4 +1,4 @@
-const { Model, Datatypes} = require('sequelize');
+const { Model, Datatypes, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our dog model
@@ -7,37 +7,37 @@ class Dog extends Model {}
 Dog.init(
 	{
 	  id: {
-		type: Datatypes.INTEGER,
+		type: DataTypes.INTEGER,
 		allowNull: false,
 		primaryKey: true,
 		autoIncrement: true,
 	  },
 	  dogName: {
-	    type: Datatypes.STRING,
+	    type: DataTypes.STRING,
     	allowNull: false,
 	  },
 	  dogBreed: {
-		type: Datatypes.STRING,
+		type: DataTypes.STRING,
 		allowNull: false,
 	  },
 	  dogSex: {
-		type: Datatypes.ENUM('male', 'female'),
+		type: DataTypes.ENUM('male', 'female'),
 		allowNull: false,
 	  },
 	  dogAge: {
-		type: Datatypes.INTEGER,
+		type: DataTypes.INTEGER,
 		allowNull: false,
 	  },
 	  dogWeight: {
-		type: Datatypes.INTEGER,
+		type: DataTypes.INTEGER,
 		allowNull: false,
 	  },
 	  dogVet: {
-		type: Datatypes.STRING,
+		type: DataTypes.STRING,
 		allowNull: false,
 	  },
 	  dogConditions: {
-		type: Datatypes.STRING,
+		type: DataTypes.STRING,
 		allowNull: false,
 	  }, 
 	  user_id: {

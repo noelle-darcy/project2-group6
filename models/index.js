@@ -22,4 +22,4 @@ Reservations.belongsTo(Dog, {
 
 // Can add more connections if we need right here.
 
-module.exports = { User, Dog, Reservations };
+module.exports = { User, Dog };
