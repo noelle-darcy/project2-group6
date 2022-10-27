@@ -4,7 +4,8 @@ const sequelize = require('../config/connection');
 // create our reservations model
 class Reservations extends Model {}
 
-Reservations.init({
+Reservations.init(
+    {
 	dogName: {
         type: Datatypes.INTEGER,
         allowNull: false,
@@ -37,6 +38,14 @@ Reservations.init({
         type: Datatypes.DATE,
         allowNull: false,
     },
-})
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true, 
+        underscored: true,
+        modelName: 'Reservations'
+    }
+);
 
 module.exports = Reservations;
