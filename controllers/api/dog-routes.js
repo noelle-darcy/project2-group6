@@ -8,8 +8,9 @@ router.get('/', async (req, res) => {
 					include: [{model: Reservations}],
 			});
 			console.log(dogData);
-			res.status(200).json(userData);
+			res.status(200).json(dogData);
 	} catch (err) {
+		console.log(err);
 			res.status(500).json(err);
 	}  
 });
