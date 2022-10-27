@@ -14,6 +14,8 @@ Reviews.init(
 			allowNull: false,
 			len: [4]
 		},
+	},
+	{
 		sequelize,
         timestamps: false,
         freezeTableName: true,
