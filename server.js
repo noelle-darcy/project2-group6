@@ -3,6 +3,7 @@ const path = require('path');
 const sequelize = require('./config/connection');
 
 const app = express();
+const Model = require("./models");
 
 const PORT = process.env.PORT || 3001;
 
@@ -21,6 +22,3 @@ sequelize.sync().then(() => {
     });
 });
 
-sequelize.sync().then(() => {
-    
-})
