@@ -24,7 +24,21 @@ User.init(
             validate: {
                 len: [5]
             }
-        }, // add a password?  or is this covered elsewhere?
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isEmail: true,
+            }
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [6],
+            }
+        },
     },
     {
         hooks: {

@@ -5,7 +5,6 @@ const { Dog } = require('../models');
 // do i need to manually enter user_id or does that happen auto?
 const dogData = [
     {
-        id: 1,
         dogName: 'Fido',
         dogBreed: 'Chow',
         dogSex: 'male',
@@ -15,7 +14,6 @@ const dogData = [
         dogConditions: 'None',
     },
     {
-        id: 2,
         dogName: 'Lewis',
         dogBreed: 'Dalmatian',
         dogSex: 'male',
@@ -25,7 +23,6 @@ const dogData = [
         dogConditions: 'Nut Allergy',
     },
     {
-        id: 3,
         dogName: 'Josephine',
         dogBreed: 'Hound Mix',
         dogSex: 'female',
@@ -35,7 +32,6 @@ const dogData = [
         dogConditions: 'ADHD',
     },
     {
-        id: 4,
         dogName: 'Henry',
         dogBreed: 'Lab Mix',
         dogSex: 'male',
@@ -45,7 +41,6 @@ const dogData = [
         dogConditions: 'None',
     },
     {
-        id: 5,
         dogName: 'Alice',
         dogBreed: 'Daschund',
         dogSex: 'female',
@@ -55,7 +50,6 @@ const dogData = [
         dogConditions: 'Itchy Skin',
     },
     {
-        id: 6,
         dogName: 'Kasper',
         dogBreed: 'Irish Wolfhound',
         dogSex: 'male',
