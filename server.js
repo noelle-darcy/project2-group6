@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const sequelize = require('./config/connection');
 const handlebars = require('express-handlebars');
-const controllers = require('./controllers');
+// const controllers = require('./controllers');
 
 // const Model = require("./models"); do we actually need this in here??
 
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', controllers);
+// app.use('/api', controllers);
 
 app.get('/', (req, res) => {
     res.render('main', {layout : 'index'});
