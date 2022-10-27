@@ -1,4 +1,4 @@
-const { Model, Datatypes} = require('sequelize');
+const { Model, Datatypes, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our dog model
@@ -40,10 +40,10 @@ Dog.init(
 		type: DataTypes.STRING,
 		allowNull: false,
 	  }, 
-	  dog_id: {
+	  user_id: {
 		type: DataTypes.INTEGER,
 		references: {
-			model: 'dog',
+			model: 'user',
 			key: 'id',
 		},
 	  },

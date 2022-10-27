@@ -25,13 +25,6 @@ User.init(
                 len: [5]
             }
         }, // add a password?  or is this covered elsewhere?
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
     },
     {
         hooks: {
