@@ -5,7 +5,11 @@ const handlebars = require('express-handlebars');
 // const Model = require("./models");
 
 const app = express();
+
 app.set('view engine', 'handlebars');
+app.engine('handlebars', handlebars.engine({
+    layoutsDir: __dirname + '/views/layouts',
+}));
 
 const PORT = process.env.PORT || 3001;
 
