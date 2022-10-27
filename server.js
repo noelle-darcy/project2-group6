@@ -1,4 +1,5 @@
 const express = require('express');
+const { Server } = require('http');
 const path = require('path');
 const sequelize = require('./config/connection');
 // const Model = require("./models");
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
 
 sequelize.sync().then(() => {
     app.listen(PORT, () => {
-        console.log(`Listening on Port ${PORT}`);
+			console.log(`Server is available at http://localhost:3001`);
     });
 });
 

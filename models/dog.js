@@ -1,4 +1,4 @@
-const { Model, Datatypes, DataTypes} = require('sequelize');
+const { Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our dog model
@@ -21,7 +21,7 @@ Dog.init(
 		allowNull: false,
 	  },
 	  dogSex: {
-		type: DataTypes.ENUM('male', 'female'),
+		type: DataTypes.STRING,
 		allowNull: false,
 	  },
 	  dogAge: {
