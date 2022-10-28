@@ -6,6 +6,8 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize') (session.Store);
 const controllers = require('./controllers');
 
+const Model = require('./models'); // this generates tables automatically upon starting the server. 
+
 const app = express();
 
 const PORT = process.env.PORT || 3001;
