@@ -1,14 +1,6 @@
-{{!-- Left To-Do:
-	-Make Icons smaller
-	-Center header icons
-	-Set up nav links
-	-Set up booking links 
-  -Check if user is signed in --}}
-
-
 {{!-- Header Division --}}
 <div>
-	<a href="https://imgbb.com/"><img class="headericon" src="https://i.ibb.co/jMbH9YX/project2-headericon.jpg" alt="project2-headericon" border="0" height="80"></a>
+	<img class="headericon" src="../image/project2-headericon.jpg" alt="project2-headericon" border="0" height="80">
 	<div class="topnav">
   <a class="active" href="#home">Home</a>
   <a href="#services">Services</a>
@@ -24,7 +16,8 @@
   <div class="card-body">
     <h2 class="card-title">Boarding</h2>
     <p class="card-text">Your dog’s home-away-from-home is complete with climate controlled, private guestrooms for eating and sleeping. Unlike traditional kennels, Muttel 6’s dog boarding offers the amenities of two days of daycare plus a night of boarding.</p>
-    <a href="#" class="btn btn-primary">Book Now!</a>
+   <button class="button" id="boarding">Book Now!</button> 
+    
 </div>
 </div>
 
@@ -34,7 +27,7 @@
   <div class="card-body">
     <h5 class="card-title">Day Care</h5>
     <p class="card-text">Our doggy day care allows for your pups to socialize with other dogs in the same size range. We have Water Wednesdays where we allow the pups to play in the pool. We make sure every pup gets plenty of exercise so they'll be ready to sleep when they go home.</p>
-    <a href="#" class="btn btn-primary">Book Now!</a>
+   <button class="button" id="daycare">Book Now!</button> 
   
 </div>
 </div>
@@ -44,8 +37,15 @@
   <div class="card-body">
     <h5 class="card-title">Grooming</h5>
     <p class="card-text">We offer three different types of grooming sessions. The Basic Bath includes a bath, blowdry and brush out. The Luxury Bath also includes an ear cleaning, blueberry facial and nail clipping and the Full Groom also comes with a cut and style!</p>
-    <a href="#" class="btn btn-primary">Book Now!</a>
+     <button class="button" id="grooming">Book Now!</button> 
+
 </div>
 {{!-- Check if signed in!!! If not, send to sign in page. If so, send to booking page. --}}
 </div>
 
+{{!-- Left To-Do:
+	-Make Icons smaller
+	-Center header icons
+	-Set up nav links
+	-Set up booking links --}}
+<script src="/js/main.js"></script>
