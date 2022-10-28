@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const handlebars = require('express-handlebars');
 const sequelize = require('./config/connection');
-const controllers = require('./controllers');
+//const controllers = require('./controllers');
 
 const app = express();
 
@@ -18,7 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(controllers);
+
+app.get('/', (req, res) => {
+    res.render('main', {layout : 'index'});
+});
+
+//app.use(controllers);
+
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
