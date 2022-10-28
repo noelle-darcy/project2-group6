@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
-    res.render('main', {layout : 'index'});
+    res.render('home', {layout : 'main'});
 });
 
 //app.use(controllers);
