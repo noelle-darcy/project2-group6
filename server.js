@@ -1,30 +1,32 @@
 const express = require('express');
 const path = require('path');
-const sequelize = require('./config/connection');
 const handlebars = require('express-handlebars');
-// const controllers = require('./controllers');
-
-// const Model = require("./models"); do we actually need this in here??
+const sequelize = require('./config/connection');
+//const controllers = require('./controllers');
 
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
+const hbs = handlebars.create();
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-app.engine('handlebars', handlebars.engine({
-    layoutsDir: __dirname + '/views/layouts',
-}));
 
 // Sets static folder to public.
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.get('/', (req, res) => {
     res.render('main', {layout : 'index'});
 });
 
-sequelize.sync().then(() => {
+//app.use(controllers);
+
+
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
         console.log(`Listening on Port ${PORT}, at http://localhost:3001`);
     });

@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
 			console.log(dogData);
 			res.status(200).json(dogData);
 	} catch (err) {
+		console.log(err);
 			res.status(500).json(err);
 	}  
 });
