@@ -6,21 +6,23 @@ const { Dog } = require('../models');
 const dogData = [
     {
         dogName: 'Fido',
-        dogBreed: 'Chow',
+        dogBreed: 'Bichon',
         dogSex: 'male',
         dogAge: 3,
         dogWeight: 45,
         dogVet: 'Dr. Jung',
         dogConditions: 'None',
+        img: "/image/Dog1.png"
     },
     {
-        dogName: 'Lewis',
-        dogBreed: 'Dalmatian',
+        dogName: 'Finn',
+        dogBreed: 'Boston Terrier',
         dogSex: 'male',
-        dogAge: 10,
-        dogWeight: 55,
+        dogAge: 1,
+        dogWeight: 15,
         dogVet: 'Dr. Sally',
         dogConditions: 'Nut Allergy',
+        img: "/image/Dog2.png"
     },
     {
         dogName: 'Josephine',
@@ -30,6 +32,7 @@ const dogData = [
         dogWeight: 35,
         dogVet: 'Dr. Jung',
         dogConditions: 'ADHD',
+        img: "/image/Dog5.png"
     },
     {
         dogName: 'Henry',
@@ -39,24 +42,27 @@ const dogData = [
         dogWeight: 70,
         dogVet: 'Dr. Lex',
         dogConditions: 'None',
+        img: "/image/Dog3.png"
     },
     {
         dogName: 'Alice',
-        dogBreed: 'Daschund',
+        dogBreed: 'Dalmation',
         dogSex: 'female',
         dogAge: 7,
-        dogWeight: 15,
+        dogWeight: 55,
         dogVet: 'Dr. Lex',
         dogConditions: 'Itchy Skin',
+        img: "/image/Dog4.png"
     },
     {
-        dogName: 'Kasper',
-        dogBreed: 'Irish Wolfhound',
+        dogName: 'Sola',
+        dogBreed: 'Golden Retriever',
         dogSex: 'male',
-        dogAge: 3,
-        dogWeight: 100,
+        dogAge: 1,
+        dogWeight: 10,
         dogVet: 'Dr. Sally',
-        dogConditions: 'Too Big',
+        dogConditions: 'Too Cute',
+        img: "/image/Dog7.png"
     },
 ];
 
