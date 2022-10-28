@@ -4,7 +4,7 @@ const handlebars = require('express-handlebars');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const sequelizeStore = require('connect-session-sequelize') (session.Store);
-//const controllers = require('./controllers');
+const controllers = require('./controllers');
 
 const app = express();
 
@@ -41,9 +41,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.render('home', {layout : 'main'});
 });
+app.get('/api', (req, res) => { // this is not the correct address, just an example
+    res.render('daycareBooking', {layout : 'main'});
+});
 
-//app.use(controllers);
-
+app.use(controllers);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {

@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Dog, Reservations } = require("../../models");
 
-
 router.get('/', async (req, res) => {
 	try {
 			const dogData = await Dog.findAll({
@@ -25,8 +24,6 @@ router.post('/', async (req, res) => {
 		res.status(400).json(err);
 	}
 });
-
-
 
 
 module.exports = router;
