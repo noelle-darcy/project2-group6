@@ -1,3 +1,12 @@
+{{!-- TO-DO: -center header icon
+			 -connect to JavaScript file
+			 -CSS styling for grooming options
+			 -CSS styling for confirmation message 
+			 -add drop down with user's dog's names
+			 	-if user only has one dog, keep box there. they just can't click it.
+			 -add calendar & time for users to select appt time--}}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +21,13 @@
 <a href="https://imgbb.com/"><img class="headericon" src="https://i.ibb.co/jMbH9YX/project2-headericon.jpg" alt="project2-headericon" border="0" height="80"></a>
 
 
-<div style="display: none">
+<div style="display: block">
 <h1>Grooming Options</h1>
 
 {{!-- Main Grooming Option Selection --}}
-<div>
+<div id="mainGroomingSession">
 <div> 
-<h3>The Full Groom</h3>
+<h3>The Full Groom - $70</h3>
 <u1>Includes:
 	<li>Custom Cut & Style</li>
 	<li>Bath, Blow Dry & Brush Out</li>
@@ -26,31 +35,31 @@
 	<li>Ear Cleaningg</li>
 	<li>Nail Clipping & Grinding</li>
 </u1>
-<a href="#" class="btn btn-primary">Full Groom</a>
+<button class="button" id="fullGroom">Full Groom</button>
 </div>
 
 <div> 
-<h3>The Luxury Bath</h3>
+<h3>The Luxury Bath - $50</h3>
 <u1>Includes:
 	<li>Bath, Blow Dry & Brush Out</li>
 	<li>Blueberry Facial</li>
 	<li>Ear Cleaningg</li>
 	<li>Nail Clipping & Grinding</li>
 </u1>
-<a href="#" class="btn btn-primary">Luxury Bath</a>
+<button class="button" id="luxuryBath">Luxury Bath</button>
 </div>
 
 <div> 
-<h3>The Basic Bath</h3>
+<h3>The Basic Bath - $35</h3>
 <u1>Includes:
 	<li>Bath, Blow Dry & Brush Out</li>
 </u1>
-<a href="#" class="btn btn-primary">Basic Bath</a>
+<button class="button" id="basicBath">Basic Bath</button>
 </div>
 </div>
 
 {{!-- Add-Ons --}}
-<div>
+<div id="addonSession" style="display: none;">
 <form>
             <fieldset>
                 <legend>Add-On's:</legend>
@@ -62,16 +71,18 @@
 				<input type="checkbox" name="addon" value="deshedding" id="deshedding">Deshedding Treatment - $25<br>
             </fieldset>
 </form>
+<button class="button" id="addonChoices">Submit Choices</button>
 </div>
 
-<a href="#" class="btn btn-primary">Submit Choices</a>
+{{!-- Date & Time Picker --}}
+{{!-- Drop down to choose dog name --}}
 
+<div id="confirmationMessage" style="display: none;">
+<h2>Appointment Confirmation:</h2>
+<h4 id="apptDetails"></h4>
 </div>
-
-{{!-- Appointment Book --}}
-
-<div id="demo-booking-multiple"></div>
-
+</div>
 <script src="../../public/js/groomingBooking.js"></script>
 
 </body>
+</html>
