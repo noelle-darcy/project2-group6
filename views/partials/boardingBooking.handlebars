@@ -1,0 +1,82 @@
+{{!-- TO-DO: -center header icon
+			 -connect to JavaScript file
+			 -CSS styling for grooming options
+			 -CSS styling for confirmation message 
+			 -add drop down with user's dog's names
+			 	-if user only has one dog, keep box there. they just can't click it.
+			 -add calendar for dropoff pickup dates--}}
+
+
+<a href="https://imgbb.com/"><img class="headericon" src="https://i.ibb.co/jMbH9YX/project2-headericon.jpg" alt="project2-headericon" border="0" height="80"></a>
+
+<div id="boardingBookingSystem">
+    <h1>Boarding</h1>
+        {{!-- TO-DO: drop down menu with dog registered to user's profile --}}
+            <p>Your dog’s home-away-from-home is complete with climate controlled, private guestrooms for eating and sleeping. Our most pawpular accommodations
+            provide an at home environment for your pet. Upgrade your pup’s experience to one of our luxury suites for the ultimate pampered pooch experience. 
+            Each luxury suite provides at least 24 square feet of privacy for your pups overnight vacation. Unlike traditional kennels, Muttel-6’s dog  
+            boarding offers the amenities of two days of daycare plus a night of boarding. This means your dog will enjoy ample amounts of group playtime and 
+            socialization during his or her vacation at Muttel-6.</p>
+        {{!-- TO-DO: add date selector --}}
+    <h4>Would you like to add grooming to your boarding session?</h4>
+        <button class="button" id="yesGrooming">Yes Please!</button>
+        <button class="button" id="noGrooming">No Thank-You</button>
+</div>
+
+{{!-- if user prompts that they would like to add grooming, this will show them their options --}}
+<div id="grooming" style="display: none;">
+            <div id="mainGroomingSession">
+                <div> 
+                <h3>The Full Groom - $70</h3>
+                <u1>Includes:
+                    <li>Custom Cut & Style</li>
+                    <li>Bath, Blow Dry & Brush Out</li>
+                    <li>Blueberry Facial</li>
+                    <li>Ear Cleaningg</li>
+                    <li>Nail Clipping & Grinding</li>
+                </u1>
+                <button class="button" id="fullGroom">Full Groom</button>
+                </div>
+                
+                <div> 
+                <h3>The Luxury Bath - $50</h3>
+                <u1>Includes:
+                    <li>Bath, Blow Dry & Brush Out</li>
+                    <li>Blueberry Facial</li>
+                    <li>Ear Cleaningg</li>
+                    <li>Nail Clipping & Grinding</li>
+                </u1>
+                <button class="button" id="luxuryBath">Luxury Bath</button>
+                </div>
+                
+                <div> 
+                <h3>The Basic Bath - $35</h3>
+                <u1>Includes:
+                    <li>Bath, Blow Dry & Brush Out</li>
+                </u1>
+                <button class="button" id="basicBath">Basic Bath</button>
+                </div>
+                </div>
+                
+                <div id="addonSession" style="display: none;">
+                <form>
+                            <fieldset>
+                                <legend>Add-On's:</legend>
+                                <input type="checkbox" name="addon" value="nailClipping" id="nailClipping">Nail Clipping & Grinding - $20<br>
+                                <input type="checkbox" name="addon" value="teethBrushing" id="teethBrushing">Teeth Brushing - $10<br>
+                                <input type="checkbox" name="addon" value="earCleaning" id="earCleaning">Ear Cleaning - $15<br>
+                                <input type="checkbox" name="addon" value="brushOut" id="brushOut">Brush Out - $10<br>
+                                <input type="checkbox" name="addon" value="analGlands" id="analGlands">External Anal Glands - $15<br>
+                                <input type="checkbox" name="addon" value="deshedding" id="deshedding">Deshedding Treatment - $25<br>
+                            </fieldset>
+                </form>
+                <button class="button" id="addonChoices">Submit Choices</button>
+                </div>
+
+        </div>
+
+{{!-- confirmation message will be sent from JavaScript file --}}
+<div id="confirmationMessage"></div>
+
+ <script src="/js/boardingBooking.js"></script>
+
