@@ -4,7 +4,7 @@ const handlebars = require('express-handlebars');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize') (session.Store);
-const controllers = require('./controllers');
+const api = require('./controllers/api');
 
 const Model = require('./models'); // this generates tables automatically upon starting the server. 
 
@@ -39,9 +39,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', api);
+
 app.get('/', (req, res) => {
     res.render('home', {layout : 'main'});
 });
+
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
