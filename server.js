@@ -39,20 +39,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// app.get('/', (req, res) => {
-//     res.render('home', {layout : 'main'});
-// });
-// app.get('/api', (req, res) => { // this is not the correct address, just an example
-//     res.render('daycareBooking', {layout : 'main'});
-// });
-
-
-// no '/' defined in current state.
-
-// All routes from controllers have /api prefix. 
-// May not need '/api' but i don't think it hurts.
-app.use('/api', controllers);
+app.get('/', (req, res) => {
+    res.render('home', {layout : 'main'});
+});
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
