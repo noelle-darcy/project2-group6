@@ -3,8 +3,10 @@ const path = require('path');
 const handlebars = require('express-handlebars');
 const sequelize = require('./config/connection');
 const session = require('express-session');
-const sequelizeStore = require('connect-session-sequelize') (session.Store);
+const SequelizeStore = require('connect-session-sequelize') (session.Store);
 const controllers = require('./controllers');
+
+const Model = require('./models'); // this generates tables automatically upon starting the server. 
 
 const app = express();
 
