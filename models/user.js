@@ -2,12 +2,8 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-// Commented out password stuff for now
+// STILL NEED TO BCRYPT -AFTER- MINIMUM VIABLE PRODUCT
 class User extends Model {
-    // Set up method to check password
-    // checkPassword(loginPW) {
-    //     return bcrypt.compareSync(loginPW, this.password);
-    // }
 }
 
 User.init(
@@ -35,21 +31,11 @@ User.init(
             allowNull: false,
             validate: {
                 len: [8],
-            }
+            },
         },
     },
-    {
-        hooks: {
-            beforeCreate: async (newUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 8);
-                return updatedUserData;
-            },
-            beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 8);
-                return updatedUserData;
-            }
-        },
-        sequelize,
+		{
+				sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
