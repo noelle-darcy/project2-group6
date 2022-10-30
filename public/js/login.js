@@ -1,8 +1,18 @@
+$("#button").click(function() {  
+  $("#box form").toggle("slow");
+  return false;
+});
+
+$("#buttontwo").click(function() {
+	$("#boxtwo form").toggle("slow");
+	return false;
+});
+
 const loginForm = async function(event) {
     event.preventDefault();
 
     const username = document.querySelector('#username-login').value.trim();
-    const password = document.querySelector('#passowrd-login').value.trim;
+    const password = document.querySelector('#password-login').value.trim;
 
     if (username && password) {
         //Send a POST request to the API endpoint
@@ -45,11 +55,15 @@ const signUpForm = async (event) => {
     }
 };
 
-document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginForm);
+// document
+//     .querySelector('.login-form')
+//     .addEventListener('submit', loginForm);
 
-document
-    .querySelector('.singup-form')
-    .addEventListener('submit', signUpForm);
+// document
+// 		.querySelector('.register-form')
+// 		.addEventListener('register', signUpForm);
+
+// document
+//     .querySelector('.singup-form')
+//     .addEventListener('submit', signUpForm);
 
