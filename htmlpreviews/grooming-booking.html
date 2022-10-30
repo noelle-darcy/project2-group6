@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<a href="https://imgbb.com/"><img class="headericon" src="https://i.ibb.co/jMbH9YX/project2-headericon.jpg" alt="project2-headericon" border="0" height="80"></a>
+
+
+<div style="display: block">
+<h1>Grooming Options</h1>
+
+{{!-- Main Grooming Option Selection --}}
+<div id="mainGroomingSession">
+<div> 
+<h3>The Full Groom - $70</h3>
+<u1>Includes:
+	<li>Custom Cut & Style</li>
+	<li>Bath, Blow Dry & Brush Out</li>
+	<li>Blueberry Facial</li>
+	<li>Ear Cleaningg</li>
+	<li>Nail Clipping & Grinding</li>
+</u1>
+<button class="button" id="fullGroom">Full Groom</button>
+</div>
+
+<div> 
+<h3>The Luxury Bath - $50</h3>
+<u1>Includes:
+	<li>Bath, Blow Dry & Brush Out</li>
+	<li>Blueberry Facial</li>
+	<li>Ear Cleaningg</li>
+	<li>Nail Clipping & Grinding</li>
+</u1>
+<button class="button" id="luxuryBath">Luxury Bath</button>
+</div>
+
+<div> 
+<h3>The Basic Bath - $35</h3>
+<u1>Includes:
+	<li>Bath, Blow Dry & Brush Out</li>
+</u1>
+<button class="button" id="basicBath">Basic Bath</button>
+</div>
+</div>
+
+{{!-- Add-Ons --}}
+<div id="addonSession" style="display: none;">
+<form>
+            <fieldset>
+                <legend>Add-On's:</legend>
+                <input type="checkbox" name="addon" value="nailClipping" id="nailClipping">Nail Clipping & Grinding - $20<br>
+                <input type="checkbox" name="addon" value="teethBrushing" id="teethBrushing">Teeth Brushing - $10<br>
+                <input type="checkbox" name="addon" value="earCleaning" id="earCleaning">Ear Cleaning - $15<br>
+                <input type="checkbox" name="addon" value="brushOut" id="brushOut">Brush Out - $10<br>
+				<input type="checkbox" name="addon" value="analGlands" id="analGlands">External Anal Glands - $15<br>
+				<input type="checkbox" name="addon" value="deshedding" id="deshedding">Deshedding Treatment - $25<br>
+            </fieldset>
+</form>
+<button class="button" id="addonChoices">Submit Choices</button>
+</div>
+
+{{!-- Date & Time Picker --}}
+{{!-- Drop down to choose dog name --}}
+
+<div id="confirmationMessage" style="display: none;">
+<h2>Appointment Confirmation:</h2>
+<h4 id="apptDetails"></h4>
+</div>
+</div>
+<script src="/js/groomingBooking.js"></script>
+
+</body>
+</html>
