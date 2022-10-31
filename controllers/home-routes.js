@@ -1,18 +1,42 @@
 const router = require('express').Router();
-const { User, Dog, Reservations, Reviews, Schedule } = require("../models");
+//DO WE NEED SEQUELIZE HERE?? const sequelize = require(' blah blah)
+const { User, Dog, Reservations, Reviews } = require("../models");
 
 // Get all Dogs for a User.
-router.get('/', async (req, res) => {
-    try {
-        const dogData = await Dog.findAll({
-            include: [User],
-        });
-        const dogs = dogData.map((dog) => dog.get({ plain: true }));
-        res.render('home'); // should be account page?
-    } catch (err) {
+router.get('/', (req, res) => {
+    Dog.findAll({
+        attributes: [
+            "id",
+            "dogName",
+            "dogBreed",
+            "dogSex",
+            "dogAge",
+            "dogWeight",
+            "dogVet",
+            "dogConditions",
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ["username"],
+            },
+            {
+                model: Reservations,
+                attributes: ["dropOffDate"],
+            },
+        ],
+    })
+        .then(dbDogData => {
+            const dogs = dbDogData.map((dog) => dog.get({ plain: true }))
+            res.render("main", {
+                dogs,
+                loggedIn: req.session.loggedIn
+            });
+        })    
+        .catch ((err) => {
         res.status(500).json(err);
-    }
-});
+    });
+})
 
 // Get all Reservations for a Dog.
 router.get('/', async (req, res) => {
@@ -71,11 +95,60 @@ router.get('/daycareBooking:apptType', async (req, res) => {
 // Once logged in, redirect to Account page.
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/account');
+        res.redirect('/dashboard');
         return;
     }
     res.render('login');
 });
 
+router.get("/signup", (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect("/");
+        return;
+    }
+    res.render("signup");
+});
+
+router.get('/dog/:id', (req, res) => {
+    Dog.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            "id",
+            "dogName",
+            "dogBreed",
+            "dogSex",
+            "dogAge",
+            "dogWeight",
+            "dogVet",
+            "dogConditions",
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ["username"],
+            },
+            {
+                model: Reservations,
+                attributes: ["dropOffDate"],
+            },
+        ],
+    })
+        .then(dbDogData => {
+            if (!dbDogData){
+                res.status(404).json({ message: "Dog not found"});
+                return;
+            }
+            const dogs = dbDogData.get({ plain: true });
+            res.render("dashboard", {
+                dogs,
+                loggedIn: req.session.loggedIn
+            });
+        })    
+        .catch ((err) => {
+        res.status(500).json(err);
+    });
+})
 
 module.exports = router;

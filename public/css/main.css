@@ -20,10 +20,10 @@
   }
   
   /* Add a color to the active/current link */
-  .topnav a.active {
+  /* .topnav a.active {
     background-color: #1A91CC;
     color: white;
-  }
+  } */
 
   .logo-image{
     width: 100px;
