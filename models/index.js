@@ -1,7 +1,7 @@
-const User = require('./User');
-const Dog = require('./Dog');
-const Reservations = require('./Reservations');
-const Reviews = require('./Reviews');
+const User = require('./user');
+const Dog = require('./dog');
+const Reservations = require('./reservations');
+const Reviews = require('./reviews');
 // const Schedule = require('./Schedule');
 
 User.hasMany(Dog, {
