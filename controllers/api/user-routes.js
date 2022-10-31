@@ -1,18 +1,20 @@
 const router = require('express').Router();
 const passport = require('../../config/passport');
-const { User, Dog } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const { User, Dog, Reservations, Reviews } = require('../../models');
+const withAuth = require('../../utils/auth');
+const connection = require("../../config/connection");
+const session = require('express-session');
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-// router.get('/', withAuth, async (req, res) => {
 router.get('/', async (req, res) => {
-    try {
-        const userData = await User.findAll({
+    User.findAll({
             include: [{model: Dog}],
-        });
-        res.status(200).json(userData);
-    } catch (err) {
+        })
+    .then(dbUserData => res.json(dbUserData))
+    .catch (err => {
+        console.log(err);
         res.status(500).json(err);
-    }  
+    });  
 });
 
 router.post('/', (req, res, next) => {
@@ -23,8 +25,29 @@ router.post('/', (req, res, next) => {
 });
 
 // Create a new User.
+router.post('/', (req, res) => {
+    User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+
+    })
+        .then((dbUserData) => {
+            req.session.save(() => {
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
+                req.session.loggedIn = true;
+
+                res.json(dbUserData);
+            });
+        })
+        .catch((err) => {
+            console.log((err) => {
+                res.status(500).json(err);
+            });
+        });
+    });
 // Attempt at bcrypt stuff.
-// router.post('/', async (req, res) => {
 //     try {
 //         const newUser = new User({
 //             username : username, 
@@ -44,7 +67,6 @@ router.post('/', (req, res, next) => {
 //         res.status(400).json(err)
 //     };
 // });
-
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -56,14 +78,41 @@ router.post('/', async (req, res) => {
 
 // Login a User.
 router.get('/account', (req, res) => {
-    res.render('acount');
+    User.findOne({
+        where: {
+            id: req.params.id,
+        },
+        include: [
+            {
+                model: Dog,
+                attributes: ["id", "name"],
+            },
+            {
+                model: Dog,
+                attributes: ["name"],
+                through: Reservations,
+                as: "dropOffDate",
+            },
+        ],
+    })
+    .then((dbUserData) => {
+        if (!dbUserData) {
+            res.status(404).json({ message: "User not found"});
+            return;
+        }
+        res.json(dbUserData);
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 // Logout a User from the Account Page.  Render the landing page.
 router.get('/account', (req, res) => {
-    res.render('landing')
+    res.render('main');
 });
 
 module.exports = router;
 
-// throws 'cannot get /login' error until we get withAuth figured out.
+//for later:  get user by id, incorrect password, log out, delete user
