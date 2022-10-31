@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
     if (req.session) {
         Review.create({
             review_text: req.body.review_text,
-            userId: req.session.userId,
+            user_id: req.session.user_id,
             
         })
         .then((dbReviewData) => 
