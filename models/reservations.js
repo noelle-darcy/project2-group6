@@ -6,9 +6,22 @@ class Reservations extends Model { }
 
 Reservations.init(
     {
-        dogName: {
-            type: DataTypes.STRING,
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        // dogName: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        userId: {
+            type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: "user",
+                key: "id",
+            },
         },
         apptType: {
             //daycare, boarding, grooming

@@ -11,15 +11,22 @@ Reviews.init(
 			primaryKey: true,
 			autoIncrement: true,
 		},
-		reviewerName: {
+		review_text: {
 			type: DataTypes.STRING,
 			allowNull: false,
+			validate: {
+				len: [1],
+			},
 		},
-		review: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			len: [2],
-		},
+		// reviewerName: {
+		// 	type: DataTypes.STRING,
+		// 	allowNull: false,
+		// },
+		// review: {
+		// 	type: DataTypes.STRING,
+		// 	allowNull: false,
+		// 	len: [2],
+		// },
 		  // this is here in case we decide to link to another model, else we can lose it. 'user_id' may change names.
 		user_id: {
 			type: DataTypes.INTEGER,
